@@ -1,0 +1,24 @@
+{
+  "name": "cypress-basico",
+  "version": "1.0.0",
+  "description": "Repositório para estudo do curso básico de automação com Cypress",
+  "main": "index.js",
+  "scripts": {
+    "cy:open": "npx cypress open",
+    "cy:hl": "npx cypress run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fernandoborlone/cypress-basico.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fernandoborlone/cypress-basico/issues"
+  },
+  "homepage": "https://github.com/fernandoborlone/cypress-basico#readme",
+  "dependencies": {
+    "cypress": "^7.6.0"
+  }
+}

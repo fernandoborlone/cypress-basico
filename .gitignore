@@ -1,0 +1,7 @@
+node_modules
+cypress.env.json
+cypress/reports
+cypress/screenshots
+cypress/videos
+cypress/fixtures/example.json
+cypress/integration/examples
