@@ -4,9 +4,10 @@
   "description": "Repositório para estudo do curso básico de automação com Cypress",
   "main": "index.js",
   "scripts": {
-    "cy:open": "npx cypress open",
-    "cy:hl": "npx cypress run",
-    "cy:smoke": "npx cypress run --env grepTags='@smoke'"
+    "test:open": "npx cypress open",
+    "test:hl": "npx cypress run",
+    "test:smoke": "npx cypress run --env grepTags='@smoke'",
+    "test:allButSmoke": "cypress run --env grepTags=-@smoke"
   },
   "repository": {
     "type": "git",
