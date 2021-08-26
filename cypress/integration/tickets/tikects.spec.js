@@ -18,7 +18,7 @@ context('Tikects', () => {
 
     context('Interagir com elementos', () => {
 
-        it('Preencher todos os campos do tipo texto', () => {
+        it('Preencher todos os campos do tipo texto', { tags: ['@smoke'] }, () => {
 
             cy.get('#first-name').type(dados.fistName)
             cy.get('#last-name').type(dados.lastName)
@@ -27,11 +27,11 @@ context('Tikects', () => {
             cy.get('#signature').type(fullName)
         })
 
-        it('Selecionar dois tickets', () => {
+        it('Selecionar dois tickets', { tags: ['@smoke'] }, () => {
             cy.get('#ticket-quantity').select('2')
         })
 
-        it('Selecionar o tipo de ticket VIP', () => {
+        it('Selecionar o tipo de ticket VIP', { tags: ['@smoke'] }, () => {
             cy.get('#vip').check()
         })
 
