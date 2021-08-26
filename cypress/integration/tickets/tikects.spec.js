@@ -35,7 +35,7 @@ context('Tikects', () => {
             cy.get('#vip').check()
         })
 
-        it('Marcar opção Social Media', () => {
+        it('Marcar opção Social Media', { tags: ['@critical'] }, () => {
             cy.get('#social-media').check()
 
         })
