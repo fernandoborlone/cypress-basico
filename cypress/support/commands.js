@@ -10,7 +10,7 @@ Cypress.Commands.add('preencherCamposObrigatorios', (dados) => {
 // Verifica que retorna 10 resultados e um botão Mais resultados
 Cypress.Commands.add('VerificaResultados', () => {
     cy.get('.result')
-      .should('have.length', 11)
+      .should('have.length', 12)
       .last()
       .should('contain.text', 'More results')
 })
