@@ -12,5 +12,5 @@ Cypress.Commands.add('VerificaResultados', () => {
     cy.get('.result')
       .should('have.length', 11)
       .last()
-      .should('contain.text', 'Mais resultados')
+      .should('contain.text', 'More results')
 })
