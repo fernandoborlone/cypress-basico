@@ -93,3 +93,30 @@ context('Tikects', () => {
         })
     })
 })
+
+// Exemplo de como xecutar o mesmo teste para dados diferentes
+context('Tickets', () => {
+
+    const data = require('../../fixtures/data')
+
+    data.forEach((item, index) => {
+        it(`${index + 1}: ${item.firtName} ${item.lastName} - Fills and submit the form based on a predefined list of data`, () => {
+            cy.visit('/2XSuwCW')
+
+            cy.get('#first-name').type(item.firtName)
+            cy.get('#last-name').type(item.lastName)
+            cy.get('#email').type(item.email)
+            cy.get('#agree').check()
+
+            cy.get('.agreement > fieldset')
+              .should('be.visible')
+              .and('contain', `I, ${item.firtName} ${item.lastName}, wish to buy`)
+            cy.get('[type="submit"]').click()
+
+            cy.get('.success')
+              .should('be.visible')
+              .and('contain', 'Ticket(s) successfully ordered.')
+        })   
+    })
+    
+})
