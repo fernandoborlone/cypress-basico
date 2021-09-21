@@ -21,3 +21,11 @@ module.exports = (on, config) => {
   // `config` is the resolved Cypress config
   require('cypress-grep/src/plugin')(config)
 }
+
+const allureWriter = require('@shelex/cypress-allure-plugin/writer');
+// import allureWriter from "@shelex/cypress-allure-plugin/writer";
+
+module.exports = (on, config) => {
+    allureWriter(on, config);
+    return config;
+}

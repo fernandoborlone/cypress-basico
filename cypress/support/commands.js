@@ -6,3 +6,11 @@ Cypress.Commands.add('preencherCamposObrigatorios', (dados) => {
     cy.get('#email').type(dados.email)
     cy.get('#agree').check()
 })
+
+// Verifica que retorna 10 resultados e um botão Mais resultados
+Cypress.Commands.add('VerificaResultados', () => {
+    cy.get('.result')
+      .should('have.length', 11)
+      .last()
+      .should('contain.text', 'Mais resultados')
+})

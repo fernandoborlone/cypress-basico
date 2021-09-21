@@ -5,3 +5,5 @@ cypress/screenshots
 cypress/videos
 cypress/fixtures/example.json
 cypress/integration/examples
+allure-report
+allure-results
