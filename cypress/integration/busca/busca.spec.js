@@ -71,7 +71,7 @@ describe('Exemplos de busca com Cypress', () => {
 
     it('Busca e seleciona o quarto item da lista', () => {
       cy.get('@searchField')
-        .type('cypress.io{downarrow}{downarrow}{downarrow}{downarrow}{enter}', { delay: 300 })
+        .type('cypress.io{downarrow}{downarrow}{downarrow}{downarrow}{enter}', { delay: 500 })
 
       //Assert
       cy.verificaResultados()
