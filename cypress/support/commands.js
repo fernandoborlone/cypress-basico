@@ -14,3 +14,10 @@ Cypress.Commands.add('VerificaResultados', () => {
       .last()
       .should('contain.text', 'More results')
 })
+
+Cypress.Commands.add('setDate', date => {
+    cy.get('[data-cy=birthdate-date-field]')
+      .type(date)
+      .should('have.value', date)
+      .blur()
+  })
