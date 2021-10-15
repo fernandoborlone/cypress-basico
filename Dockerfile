@@ -1,4 +1,4 @@
-FROM cypress/base:14.7.0
+FROM cypress/base:latest
 COPY . .
 ENV NO_COLOR=1
 RUN npm install
