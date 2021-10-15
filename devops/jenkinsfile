@@ -7,8 +7,6 @@ pipeline {
   }
     environment {
         CYPRESS_CACHE_FOLDER ='/home/jenkins/.cache/Cypress/8.6.0/Cypress/Cypress'
-        CYPRESS_CACHE_FOLDER=./tmp/Cypress npm install
-
     }
     stages {
         stage('e2e Tests') {
