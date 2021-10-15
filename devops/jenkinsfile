@@ -1,12 +1,11 @@
+
 pipeline {
-  agent any
+  agent {
     // this image provides everything needed to run Cypress
     docker {
       image 'cypress/base:10'
     }
-    environment {
-        CHROME_BIN = '/bin/google-chrome'
-    }
+  }
     stages {
         stage('Dependencies') {
             steps {
