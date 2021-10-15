@@ -96,7 +96,7 @@ context('Tikects', () => {
 
 // Exemplo de como xecutar o mesmo teste para dados diferentes
 context('Tickets', () => {
-
+    
     const data = require('../../fixtures/data')
 
     data.forEach((item, index) => {

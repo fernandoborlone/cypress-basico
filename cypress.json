@@ -1,3 +1,5 @@
 {
-    "baseUrl": "https://bit.ly"
+    "baseUrl": "https://bit.ly",
+    "experimentalSourceRewriting": true,
+    "chromeWebSecurity": false
 }
