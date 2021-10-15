@@ -1,13 +1,12 @@
 pipeline {
-    agent none
+    agent { node { label 'linux && nodejs' } }
+    
     stages {
         stage('Test') {
-            agent {
-                docker { image 'cypress/base:14.7.0' }
-            }
-            steps {
-                sh "npx cypress run --env allure=true"
-            }
+            docker { image 'cypress/base:14.7.0' }
+        }
+        steps {
+            sh "npx cypress run --env allure=true"
         }
     }
 }
