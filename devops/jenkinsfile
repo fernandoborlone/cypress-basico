@@ -9,11 +9,6 @@ pipeline {
         CYPRESS_CACHE_FOLDER ='/home/jenkins/.cache/Cypress'
     }
     stages {
-        stage('Dependencies') {
-            steps {
-                sh 'npm i'
-            }
-        }
         stage('e2e Tests') {
             steps {
                 sh 'npm run test'
