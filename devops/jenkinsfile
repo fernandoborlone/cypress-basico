@@ -11,8 +11,12 @@ pipeline {
     stages {
         stage('e2e Tests') {
             steps {
-               sh 'docker build --no-cache -t cypress-tests .'
-            }
+                echo 'rodar os teste de UI'
+                 sh """
+                  docker run --rm --network host \
+                 -i $DOCKER_BUILD_TAG \
+                 npm run test
+                """            }
         }
     }
 }
