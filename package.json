@@ -24,11 +24,10 @@
     "url": "https://github.com/fernandoborlone/cypress-basico/issues"
   },
   "homepage": "https://github.com/fernandoborlone/cypress-basico#readme",
-  "dependencies": {
-    "cypress": "^7.6.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@shelex/cypress-allure-plugin": "^2.11.1",
+    "cypress": "^8.6.0",
     "cypress-grep": "^2.5.3"
   }
 }
