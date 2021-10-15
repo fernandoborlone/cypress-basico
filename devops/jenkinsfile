@@ -14,7 +14,6 @@ pipeline {
                 echo 'rodar os teste de UI'
                  sh """
                   docker run --rm --network host \
-                 -i $DOCKER_BUILD_TAG \
                  npm run test
                 """            }
         }
