@@ -1,5 +1,5 @@
 pipeline {
-    agent { node 'linux && nodejs' }
+    agent any
 
     environment {
         CHROME_BIN = '/bin/google-chrome'
