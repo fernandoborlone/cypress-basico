@@ -9,6 +9,11 @@ pipeline {
         CYPRESS_CACHE_FOLDER ='.cache/Cypress'
     }
     stages {
+        stage('Dependencies') {
+            steps {
+                sh 'npm install'
+            }
+        }
         stage('e2e Tests') {
             steps {
                 sh 'npm run test'
