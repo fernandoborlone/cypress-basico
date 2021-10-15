@@ -6,7 +6,7 @@ pipeline {
     }
   }
     environment {
-        CYPRESS_CACHE_FOLDER ='.cache/Cypress'
+        CYPRESS_CACHE_FOLDER ='/var/lib/jenkins/workspace/automacao_cypress/.cache/Cypress/8.6.0/Cypress/Cypress'
     }
     stages {
         stage('e2e Tests') {
