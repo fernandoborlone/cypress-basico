@@ -1,12 +1,21 @@
 pipeline {
-    agent { node { label 'linux && nodejs' } }
-    
+    agent any
+
+    tools {nodejs "node"}
+
+    environment {
+        CHROME_BIN = '/bin/google-chrome'
+    }
     stages {
-        stage('Test') {
-            docker { image 'cypress/base:14.7.0' }
+        stage('Dependencies') {
+            steps {
+                sh 'npm i'
+            }
         }
-        steps {
-            sh "npx cypress run --env allure=true"
+        stage('e2e Tests') {
+            steps {
+                sh 'npm run test'
+            }
         }
     }
 }
