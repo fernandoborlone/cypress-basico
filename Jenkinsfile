@@ -40,19 +40,5 @@ pipeline {
                 echo 'Deployng...'
             }
         }
-
-        post {
-            success {
-                slackSend(color: '#32CD32', message: "Success in QA test execution in build", channel: "#${env.SLACK_CHANNEL}")
-             }
-
-        aborted {
-            slackSend(color: '#fa9f47', message: "Aborted in QA test execution in build", channel: "#${env.SLACK_CHANNEL}")
-             }
-
-        failure {
-            slackSend(color: '#FF0000', message: "Failure in QA test execution, check errors in build", channel: "#${env.SLACK_CHANNEL}")
-            }
-        }
     }
 }
