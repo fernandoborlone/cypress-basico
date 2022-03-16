@@ -13,7 +13,7 @@ pipeline {
 
         stage('Notifies start') {
             steps {
-                 slackSend(color: '#87CEFA', message: "Tests started", channel: "#${env.SLACK_CHANNEL}")
+                 slackSend(message: "Tests started", channel: "#${env.SLACK_CHANNEL}")
           }
         }
 
