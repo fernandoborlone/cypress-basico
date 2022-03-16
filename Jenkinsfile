@@ -8,12 +8,6 @@ pipeline {
             }
         }
 
-        stage('Build'){
-            steps{
-                sh 'npm run build'
-            }
-        }
-
         stage('Smoke Tests'){
             steps{
                 sh'npm run test:smoke'
