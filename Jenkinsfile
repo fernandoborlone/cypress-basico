@@ -8,9 +8,11 @@ pipeline {
   stages {
 
     stage('Build') {
-      echo "Building the application"
       steps {
-      sh "npm i"
+        echo "Building the application"
+        steps {
+        sh "npm i"
+        }
       }
     }
 
