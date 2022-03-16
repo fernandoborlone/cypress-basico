@@ -9,19 +9,27 @@ pipeline {
         }
 
         stage('Build'){
-            sh 'npm run build'
+            steps{
+                sh 'npm run build'
+            }
         }
 
         stage('Smoke Tests'){
-            sh'npm run test:smoke'
+            steps{
+                sh'npm run test:smoke'
+            }
         }
 
         stage('All the tests but smoke'){
-            sh'npm run test:allButSmoke'
+            steps{
+                sh'npm run test:allButSmoke'
+            }
         }
 
         stage('Deploy'){
-            echo 'Deployng...'
+            steps{
+                echo 'Deployng...'
+            }
         }
     }
 }
