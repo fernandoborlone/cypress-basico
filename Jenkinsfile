@@ -1,10 +1,6 @@
 pipeline {
   agent { node { label 'linux && node14' }}
   
-  options {
-    ansiColor('xterm')
-  }
-
   stages {
 
     stage('Build') {
