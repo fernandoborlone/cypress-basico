@@ -1,9 +1,7 @@
 pipeline {
-    agent any
-      tools {nodejs "node"}
-    }
-
-    stages {
+  agent { node { label 'linux && node14' }}
+  
+ stages {
         stage('Dependencies') {
             steps {
                 sh 'npm i'
