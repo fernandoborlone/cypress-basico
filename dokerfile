@@ -3,4 +3,4 @@ COPY . .
 ENV NO_COLOR=1
 RUN npm install
 RUN npm add cypress
-ENTRYPOINT npm run smoke_test_hml
+ENTRYPOINT npm run test:smoke
