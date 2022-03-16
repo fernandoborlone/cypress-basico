@@ -1,22 +1,32 @@
 pipeline {
-  agent { node { label 'linux && node14' }}
-  
-  stages {
-
-    stage('Build') {
-      steps {
-        echo "Building the application"
-        steps {
-        sh "npm i"
-        }
-      }
+    agent any
+      tools {nodejs "node"}
     }
 
-    stage('Executa testes') {
-      steps {
-        echo 'rodar os teste'
-        sh "npm run test:smoke"
-      }
+    stages {
+        stage('Dependencies') {
+            steps {
+                sh 'npm i'
+            }
+        }
+        stage('Build') {
+            steps {
+                sh 'npm run build'
+            }
+        }
+        stage('Smoke Tests') {
+            steps {
+                sh 'npm run test:smoke:'
+            }
+        }
+        stage('All the tests but smoke') {
+            steps {
+                sh 'npm run test:allButSmoke'
+            }
+        }
+        stage('Deploy') {
+        steps {
+      echo 'Deploying....'
     }
   }
 }
