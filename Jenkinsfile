@@ -11,12 +11,6 @@ pipeline {
 
     stages {
 
-        stage('Notifies start') {
-            steps {
-                 slackSend(message: "Tests started", channel: "#${env.SLACK_CHANNEL}")
-          }
-        }
-
         stage('Dependencies'){
             steps{
                 sh 'npm i'
