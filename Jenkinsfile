@@ -11,7 +11,8 @@ pipeline {
 
     stage('Notifies start') {
         steps {
-                slackSend(message: "Tests referring to the build started", channel: "#${env.SLACK_CHANNEL}")
+            echo 'Slack-test'
+            slackSend(message: "Tests referring to the build started", channel: "#${env.SLACK_CHANNEL}")
           }
         }
     
