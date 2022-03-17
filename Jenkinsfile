@@ -20,22 +20,6 @@ pipeline {
             }
         }
 
-        stage('Get Stage'){
-            steps{
-                script{
-                    env.ENVIRONMENT = ""
-
-                    if(env.GIT_BRANCH ==~ /.*pipeline/){
-                        env.ENVIRONMENT = "pipeline"
-                    }else if(env.GIT_BRANCH ==~ /.main/){
-                        env.ENVIRONMENT = "main"
-                    }else{
-                        currentBuild.result = 'ABORTED'
-                        error('Pipe nao roda para outras branches. Necessário implementar')
-                    }
-                }
-            }
-        }
 
         stage('Dependencies'){
             steps{
@@ -58,6 +42,16 @@ pipeline {
         stage('Notifies Finish') {
             steps {
                 slackSend(color: '#BDFFC3', message: "Tests referring to the build: ${env.BUILD_URL} finish", channel: "#${env.SLACK_CHANNEL}")
+            }
+        }
+
+        post {
+
+            success {
+                slackSend(color: '#BDFFC3', message: "Testes Finalizado com SUCCESS: ${env.BUILD_URL}", channel: "#${env.SLACK_CHANNEL}")
+            }
+            failure {
+                slackSend(color: '#FF9FA1', message: "Testes FAILURE. Verifique o que ocorreu no Terminal: ${env.BUILD_URL}", channel: "#${env.SLACK_CHANNEL}")
             }
         }
     }
