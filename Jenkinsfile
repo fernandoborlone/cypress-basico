@@ -2,11 +2,11 @@ pipeline {
     agent any
 
     triggers{
-            // uma vez a cada duas horas entre 9h e 17h todos os dias da semana (talvez às 10h38, 12h38, 14h38, 16h38)
-            cron('H H(9-16)/2 * * 1-5')
+        // uma vez a cada duas horas entre 9h e 17h todos os dias da semana (talvez às 10h38, 12h38, 14h38, 16h38)
+        cron('H H(9-16)/2 * * 1-5')
 
-            // Consultar periodicamente o SCM?
-            pollSCM '* * * * *'
+        // Consultar periodicamente o SCM?
+        pollSCM '* * * * *'
 
     }
 
@@ -50,10 +50,11 @@ pipeline {
     }
 
     post {
-    always {
-        slackSend channel: "#${env.SLACK_CHANNEL}",
-            color: COLOR_MAP[currentBuild.currentResult],
-            message: "*${currentBuild.currentResult}:* Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'\n *More info at:* ${env.BUILD_URL}"
+        success {
+            slackSend(color: '#BDFFC3', message: "Testes Finalizado com SUCCESSO: ${env.BUILD_URL}", channel: "#${env.SLACK_CHANNEL}")
+        }
+        failure {
+            slackSend(color: '#FF9FA1', message: "Testes FALHARAM. Verifique o que ocorreu no Terminal: ${env.BUILD_URL}", channel: "#${env.SLACK_CHANNEL}")
         }
     }  
 }
