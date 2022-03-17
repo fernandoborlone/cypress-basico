@@ -39,10 +39,7 @@ pipeline {
             }
         }
 
-        stage('Notifies Finish') {
-            steps {
-                slackSend(color: '#BDFFC3', message: "Tests referring to the build: ${env.BUILD_URL} finish", channel: "#${env.SLACK_CHANNEL}")
-            }
+        stage('Slack Message - END') {
 
             post {
 
