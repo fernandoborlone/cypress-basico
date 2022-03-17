@@ -23,7 +23,7 @@ pipeline {
         stage('Get Stage'){
             steps{
                 script{
-                    env.ENVIRONMENT ""
+                    env.ENVIRONMENT = ""
 
                     if(env.GIT_BRANCH ==~ /.*pipeline/){
                         env.ENVIRONMENT = "pipeline"
