@@ -38,19 +38,14 @@ pipeline {
                 sh'npm run test:allButSmoke'
             }
         }
-
-        stage('Slack Message - END') {
-            steps {
-                post {
-                    success {
-                        slackSend(color: '#BDFFC3', message: "Testes Finalizado com SUCCESS: ${env.BUILD_URL}", channel: "#${env.SLACK_CHANNEL}")
-                    }
-                    failure {
-                        slackSend(color: '#FF9FA1', message: "Testes FAILURE. Verifique o que ocorreu no Terminal: ${env.BUILD_URL}", channel: "#${env.SLACK_CHANNEL}")
-                    }
-
-                }   
-            }
-        }
     }
+
+    post {
+        success {
+            slackSend(color: '#BDFFC3', message: "Testes Finalizado com SUCCESS: ${env.BUILD_URL}", channel: "#${env.SLACK_CHANNEL}")
+        }
+        failure {
+            slackSend(color: '#FF9FA1', message: "Testes FAILURE. Verifique o que ocorreu no Terminal: ${env.BUILD_URL}", channel: "#${env.SLACK_CHANNEL}")
+        }
+    }  
 }
