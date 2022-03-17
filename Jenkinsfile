@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment{
-        SLACK_CHANNEL = 'C02JD6Z4DNC'
+        SLACK_CHANNEL = 'pipeline-todolist'
     }
 
     options{
