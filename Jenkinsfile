@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    environment{
+        SLACK_CHANNEL = 'pipeline-todolist'
+    }
+
     options{
         timeout(time: 3, unit: 'MINUTES')
     }
@@ -11,7 +15,8 @@ pipeline {
         stage('Notifies start') {
             steps {
                 echo 'Slack-test'
-                slackSend(message: "Tests referring to the build started")
+                slackSend(color: '#BDFFC3', message: 'Testes Finalizado com SUCCESS. Analise os Erros no relatório no canal do slack #pipeline-todolist', channel: "#${env.SLACK_CHANNEL}")
+
             }
         }
 
