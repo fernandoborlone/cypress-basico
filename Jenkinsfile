@@ -9,6 +9,12 @@ pipeline {
         timeout(time: 3, unit: 'MINUTES')
     }
 
+    stage('Notifies start') {
+        steps {
+                slackSend(message: "Tests referring to the build started", channel: "#${env.SLACK_CHANNEL}")
+          }
+        }
+    
     stages {
 
         stage('Dependencies'){
