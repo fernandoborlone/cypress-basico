@@ -8,15 +8,32 @@ pipeline {
     }
 
     options{
-        timeout(time: 3, unit: 'MINUTES')
+        timeout(time: 1, unit: 'HOURS')
     }
 
     
     stages {
 
-        stage('Notifies start') {
+        stage('Slack Message - START') {
             steps {
-                slackSend(color: '#BDFFC3', message: "Tests referring to the build: ${env.BUILD_URL} started", channel: "#${env.SLACK_CHANNEL}")
+                slackSend(color: '#BDFFC3', message: "Start Build: ${env.BUILD_URL} started", channel: "#${env.SLACK_CHANNEL}")
+            }
+        }
+
+        stage('Get Stage'){
+            steps{
+                script{
+                    env.ENVIRONMENT ""
+
+                    if(env.GIT_BRANCH ==~ /.*pipeline/){
+                        env.ENVIRONMENT = "pipeline"
+                    }else if(env.GIT_BRANCH ==~ /.main/){
+                        env.ENVIRONMENT = "main"
+                    }else{
+                        currentBuild.result = 'ABORTED'
+                        error('Pipe nao roda para outras branches. Necessário implementar')
+                    }
+                }
             }
         }
 
