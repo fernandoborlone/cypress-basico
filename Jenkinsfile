@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    environment{
-        SLACK_CHANNEL = 'pipeline-todolist'
-    }
-
     options{
         timeout(time: 3, unit: 'MINUTES')
     }
@@ -15,7 +11,7 @@ pipeline {
         stage('Notifies start') {
             steps {
                 echo 'Slack-test'
-                slackSend(message: "Tests referring to the build started", channel: "#${env.SLACK_CHANNEL}")
+                slackSend(message: "Tests referring to the build started")
             }
         }
 
