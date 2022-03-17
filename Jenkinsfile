@@ -2,6 +2,8 @@ pipeline {
     agent any
 
     environment{
+        PROJECT_NAME = "Cypress-basico-integracao-jenkins"
+        VERSION = "0.0.1"
         SLACK_CHANNEL = 'pipeline-todolist'
     }
 
@@ -14,9 +16,7 @@ pipeline {
 
         stage('Notifies start') {
             steps {
-                echo 'Slack-test'
-                slackSend(color: '#BDFFC3', message: 'Testes Finalizado com SUCCESS. Analise os Erros no relatório no canal do slack #pipeline-todolist', channel: "#${env.SLACK_CHANNEL}")
-
+                slackSend(color: '#BDFFC3', message: "Tests referring to the build: ${env.BUILD_URL} started", channel: "#${env.SLACK_CHANNEL}")
             }
         }
 
@@ -38,9 +38,9 @@ pipeline {
             }
         }
 
-        stage('Deploy'){
-            steps{
-                echo 'Deployng...'
+        stage('Notifies Finish') {
+            steps {
+                slackSend(color: '#BDFFC3', message: "Tests referring to the build: ${env.BUILD_URL} finish", channel: "#${env.SLACK_CHANNEL}")
             }
         }
     }
