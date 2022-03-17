@@ -4,6 +4,10 @@ pipeline {
     triggers{
             // uma vez a cada duas horas entre 9h e 17h todos os dias da semana (talvez às 10h38, 12h38, 14h38, 16h38)
             cron('H H(9-16)/2 * * 1-5')
+
+            // Consultar periodicamente o SCM?
+            pollSCM '* * * * *'
+
     }
 
     environment{
