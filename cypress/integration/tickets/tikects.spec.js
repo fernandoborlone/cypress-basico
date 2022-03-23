@@ -44,7 +44,7 @@ context('Tikects', () => {
     context('Realizar verificações (assertions)', () => {
 
         it('Deve conter o texto TICKETBOX no cabeçalho', () => {
-            cy.get('header h1').should('have.text', 'TICKETBOX')
+            cy.get('header h1').should('have.text', 'ICKETBOX')
         })
 
         it('Deve alertar preencimento incorreto do campo email', () => {
