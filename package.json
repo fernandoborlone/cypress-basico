@@ -11,7 +11,8 @@
     "test": "npx cypress run --env allure=true",
     "allure:generate": "allure generate allure-results --clean",
     "allure:open": "allure open allure-report",
-    "test:all": "npx npm-run-all test:run allure:generate allure:open"
+    "test:all": "npx npm-run-all test:run allure:generate allure:open",
+    "lint:all": "./node_modules/.bin/eslint --fix ."
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,8 @@
   "devDependencies": {
     "@shelex/cypress-allure-plugin": "^2.11.1",
     "cypress": "^8.6.0",
-    "cypress-grep": "^2.5.3"
+    "cypress-grep": "^2.5.3",
+    "eslint": "^8.14.0",
+    "eslint-plugin-cypress": "^2.12.1"
   }
 }
