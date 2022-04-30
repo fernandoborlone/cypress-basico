@@ -16,7 +16,7 @@ pipeline {
     environment{
         PROJECT_NAME = "Cypress-basico-integracao-jenkins"
         VERSION = "0.0.1"
-        SLACK_CHANNEL = 'pipeline-todolist'
+        SLACK_CHANNEL = 'pipeline-jenkins'
     }
 
     options{
