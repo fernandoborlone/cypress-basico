@@ -4,6 +4,6 @@ cypress/reports
 cypress/screenshots
 cypress/videos
 cypress/fixtures
-cypress/integration/examples
+cypress/integration
 allure-report
 allure-results
