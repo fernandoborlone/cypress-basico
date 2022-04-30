@@ -7,7 +7,7 @@ Repositório para estudo do curso básico de automação com Cypress
 ![NPM Badge](https://img.shields.io/badge/npm-CB3837?style=flat-square&logo=npm&logoColor=white)
 ![JavaScript Badge](https://img.shields.io/badge/JavaScript-323330?style=flat-square&logo=javascript&logoColor=F7DF1E)
 ### Sobre o Cypress
-- Cypress é uma ferramenta de testes que vem se tornando muito popular no mercado de TI. Com ele é possível testar praticamente qualquer coisa que seja executada em um navegador, criando scripts de testes confiáveis (100% flakiness-free), independentes e rápidos, de forma fácil, usando JavaScript como linguagem de programação.
+- Cypress é uma ferramenta de testes que vem se tornando muito popular no mercado de TI. Com ela é possível testar praticamente qualquer coisa que seja executada em um navegador, criando scripts de testes confiáveis (100% flakiness-free), independentes e rápidos, de forma fácil, usando JavaScript como linguagem de programação.
 
 - Este repositório explora interações com aplicações web, tais como:
 * Navegar por URLs,
