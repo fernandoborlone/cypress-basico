@@ -18,7 +18,7 @@ describe('Exemplos de busca com Cypress', () => {
 
   context('3 maneiras de testar funcionalidades de busca', () => {
 
-    it.only('Digita e pressiona tecla Enter', () => {
+    it('Digita e pressiona tecla Enter', () => {
       cy.get('@searchField')
         .type(`${searchTerm}{enter}`, { delay: 0 })
 

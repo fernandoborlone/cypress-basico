@@ -10,10 +10,12 @@ Cypress.Commands.add('preencherCamposObrigatorios', (dados) => {
 
 // Verifica que retorna 10 resultados e um botão Mais resultados
 Cypress.Commands.add('verificaResultados', () => {
+
     cy.get('.nrn-react-div')
         .should('have.length', 10)
-        .last()
-        .should('contain.text', 'More results')
+    cy.get('.results')
+        .find('#rld-1')
+        .should('be.visible')
     //.should('contain.text', 'Mais resultados')
 })
 
@@ -32,9 +34,9 @@ Cypress.Commands.add('generateFixture', () => {
                 'title': `${faker.lorem.words(3)}`,
                 'url': `${faker.internet.url()}`,
                 'author': `${faker.name.firstName()} ${faker.name.lastName()}`,
-                'num_comments': `${faker.datatype.number()}`,
-                'points': `${faker.datatype.number()}`,
-                'objectID': `${faker.datatype.uuid()}`,
+                'num_comments': `${faker.random.number()}`,
+                'points': `${faker.random.number()}`,
+                'objectID': `${faker.random.uuid()}`,
             }
         })
     })
