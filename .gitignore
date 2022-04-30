@@ -3,7 +3,7 @@ cypress.env.json
 cypress/reports
 cypress/screenshots
 cypress/videos
-cypress/fixtures/example.json
+cypress/fixtures
 cypress/integration/examples
 allure-report
 allure-results

@@ -24,7 +24,9 @@
     "url": "https://github.com/fernandoborlone/cypress-basico/issues"
   },
   "homepage": "https://github.com/fernandoborlone/cypress-basico#readme",
-  "dependencies": {},
+  "dependencies": {
+    "faker-br": "^0.4.1"
+  },
   "devDependencies": {
     "@shelex/cypress-allure-plugin": "^2.11.1",
     "cypress": "^8.6.0",

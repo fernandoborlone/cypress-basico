@@ -20,7 +20,7 @@ describe('Exemplos de busca com Cypress', () => {
 
     it('Digita e pressiona tecla Enter', () => {
       cy.get('@searchField')
-        .type(`${searchTerm}{enter}`)
+        .type(`${searchTerm}{enter}`, { delay: 0 })
 
       cy.wait('@getSearchResults')
 
@@ -55,7 +55,7 @@ describe('Exemplos de busca com Cypress', () => {
 
     it('Busca e seleciona o primeiro item da lista', () => {
       cy.get('@searchField')
-        .type('cypress.io{downarrow}{enter}', { delay: 100 })
+        .type('cypress.io{downarrow}{enter}', { delay: 500 })
 
       //Assert
       cy.verificaResultados()
@@ -63,7 +63,7 @@ describe('Exemplos de busca com Cypress', () => {
 
     it('Busca e seleciona o segundo item da lista', () => {
       cy.get('@searchField')
-        .type('cypress.io{downarrow}{downarrow}{enter}', { delay: 250 })
+        .type('cypress.io{downarrow}{downarrow}{enter}', { delay: 500 })
 
       //Assert
       cy.verificaResultados()
