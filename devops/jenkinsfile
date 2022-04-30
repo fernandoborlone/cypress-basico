@@ -1,0 +1,17 @@
+pipeline {
+  agent { 
+    // this image provides everything needed to run Cypress
+    docker {
+      image 'cypress/base:10'
+    }
+  }
+
+    stages {
+        stage('e2e Tests') {
+            steps {
+                sh 'npm install cypress --save -d'
+                sh 'npm run test'
+            }
+        }
+    }
+}
