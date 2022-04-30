@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /// <reference types="cypress" />
 // ***********************************************************
 // This example plugins/index.js can be used to load plugins
@@ -22,10 +23,10 @@ module.exports = (on, config) => {
   require('cypress-grep/src/plugin')(config)
 }
 
-const allureWriter = require('@shelex/cypress-allure-plugin/writer');
+const allureWriter = require('@shelex/cypress-allure-plugin/writer')
 // import allureWriter from "@shelex/cypress-allure-plugin/writer";
 
 module.exports = (on, config) => {
-    allureWriter(on, config);
-    return config;
+  allureWriter(on, config)
+  return config
 }
