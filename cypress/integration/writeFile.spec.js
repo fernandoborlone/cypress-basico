@@ -1,6 +1,6 @@
 /// <reference types="cypress"/>
 
-const faker = require('faker')
+const faker = require('faker-br')
 
 
 describe('Write File', () => {

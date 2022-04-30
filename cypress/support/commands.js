@@ -1,6 +1,5 @@
 /// <reference types="cypress"/>
-const faker = require('faker')
-
+const faker = require('faker-br')
 
 Cypress.Commands.add('preencherCamposObrigatorios', (dados) => {
     cy.get('#first-name').type(dados.fistName)
@@ -11,8 +10,8 @@ Cypress.Commands.add('preencherCamposObrigatorios', (dados) => {
 
 // Verifica que retorna 10 resultados e um botão Mais resultados
 Cypress.Commands.add('verificaResultados', () => {
-    cy.get('.result')
-        .should('have.length', 11)
+    cy.get('.nrn-react-div')
+        .should('have.length', 10)
         .last()
         .should('contain.text', 'More results')
     //.should('contain.text', 'Mais resultados')
@@ -23,50 +22,6 @@ Cypress.Commands.add('setDate', date => {
         .type(date)
         .should('have.value', date)
         .blur()
-})
-
-Cypress.Commands.add('loginBySingleSignOn', () => {
-    const options = {
-        method: 'POST',
-        url: 'https://id.dasa.com.br/auth/realms/Funcionarios/protocol/openid-connect/token',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: {
-            grant_type: "password",
-            username: 'fernando.borlone@dasa.com.br',
-            password: '@Fpn2021',
-            client_id: 'portal-cadastro-web',
-            redirect_uri: 'https://portal-cadastro-web.azr-prd02.dasaexp.io/exames'
-        },
-        failOnStatusCode: false
-    }
-    cy.request(options)
-})
-
-Cypress.Commands.add('login_argo', () => {
-
-    cy.get('#LoginView1_Login1_User').type('aprovador1')
-    cy.get('#LoginView1_Login1_Password').type('aut@argo123')
-    cy.get('#LoginView1_Login1_LoginButton').click()
-    cy.wait('@getHome')
-
-})
-
-Cypress.Commands.add('selecionar_viajante', (viajante) => {
-    cy.get('#dvAddViajante').click()
-    cy.get('#divViajantes > :nth-child(1) > .ui-select-bootstrap > .btn > .text-muted').type(`${viajante}{enter}`, { delay: 400 })
-    cy.get('.form-horizontal > .btnPad > .btnCall').click()
-})
-
-Cypress.Commands.add('preencher_origem_destino', (origem, destino) => {
-
-
-    cy.get(':nth-child(1) > .col-md-7 > :nth-child(1) > .has-feedback > dir-auto-complete-aeroportos.ng-isolate-scope > #autoCompleteAereportos')
-        .type(origem)
-
-    cy.get(':nth-child(1) > .col-md-7 > :nth-child(2) > .has-feedback > dir-auto-complete-aeroportos.ng-isolate-scope > #autoCompleteAereportos')
-        .type(destino)
 })
 
 Cypress.Commands.add('generateFixture', () => {
@@ -84,7 +39,6 @@ Cypress.Commands.add('generateFixture', () => {
         })
     })
 })
-
 
 Cypress.Commands.add('geraMassa', () => {
 
