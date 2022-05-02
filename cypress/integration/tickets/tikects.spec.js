@@ -1,15 +1,17 @@
 /* eslint-disable no-undef */
 /// <reference types="cypress"/>
 
+const faker = require('faker-br')
+
 context('Tikects', () => {
 
   let dados = {
-    fistName: 'Fernando',
-    lastName: 'Borlone',
-    email: 'fernandoborlone@gmail.com'
+    firstName: faker.name.firstName(),
+    lastName: faker.name.lastName(),
+    email: faker.internet.email()
   }
 
-  let fullName = `${dados.fistName} ${dados.lastName}`
+  let fullName = `${dados.firstName} ${dados.lastName}`
   let qdtTicket = '2'
 
   beforeEach(() => {
@@ -21,7 +23,7 @@ context('Tikects', () => {
 
     it('Preencher todos os campos do tipo texto', { tags: ['@smoke'] }, () => {
 
-      cy.get('#first-name').type(dados.fistName)
+      cy.get('#first-name').type(dados.firstName)
       cy.get('#last-name').type(dados.lastName)
       cy.get('#email').type(dados.email)
       cy.get('#requests').type('Vegetariano')
@@ -66,7 +68,7 @@ context('Tikects', () => {
   context('Testes end-to-end', () => {
 
     it('Preencher todo o formulário e resetar', () => {
-      cy.get('#first-name').type(dados.fistName)
+      cy.get('#first-name').type(dados.firstName)
       cy.get('#last-name').type(dados.lastName)
       cy.get('#email').type(dados.email)
       cy.get('#ticket-quantity').select(qdtTicket)
@@ -95,29 +97,27 @@ context('Tikects', () => {
   })
 })
 
-// Exemplo de como xecutar o mesmo teste para dados diferentes
+// Exemplo de como executar o mesmo teste para dados diferentes
 context('Tickets', () => {
-    
   const data = require('../../fixtures/data')
 
   data.forEach((item, index) => {
-    it(`${index + 1}: ${item.firtName} ${item.lastName} - Fills and submit the form based on a predefined list of data`, () => {
+    it(`${index + 1}: ${item.firstName} ${item.lastName} - Fills and submit the form based on a predefined list of data`, () => {
       cy.visit('/2XSuwCW')
 
-      cy.get('#first-name').type(item.firtName)
+      cy.get('#first-name').type(item.firstName)
       cy.get('#last-name').type(item.lastName)
       cy.get('#email').type(item.email)
       cy.get('#agree').check()
 
       cy.get('.agreement > fieldset')
         .should('be.visible')
-        .and('contain', `I, ${item.firtName} ${item.lastName}, wish to buy`)
+        .and('contain', `I, ${item.firstName} ${item.lastName}, wish to buy`)
       cy.get('[type="submit"]').click()
 
       cy.get('.success')
         .should('be.visible')
         .and('contain', 'Ticket(s) successfully ordered.')
-    })   
+    })
   })
-    
 })
