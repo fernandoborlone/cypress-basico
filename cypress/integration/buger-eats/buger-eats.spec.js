@@ -1,11 +1,17 @@
-/// <reference types="cypress"/>
+/// <reference types='cypress'/>
+
 describe('Buger Eats', () => {
+
+  beforeEach(() => {
+    cy.visit(Cypress.env('baseUrl'))
+    cy.get('img').should('have.attr', 'alt', 'Buger Eats')
+  })
+
   context('Cadastro', () => {
     it('Usuário deve se tornar um entregador', () => {
-      cy.visit(Cypress.env('baseUrl'))
-      cy.get('a[href="/deliver"]').click()
-      cy.get('#page-deliver form h1')
-        .should('have.text', 'Cadastre-se para  fazer entregas')
+      cy.seleciona_cadastre_se()
+      cy.preenche_form()
+      cy.salva_form()
     })
   })
 })
