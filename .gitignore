@@ -4,6 +4,5 @@ cypress.env.json
 cypress/reports
 cypress/screenshots
 cypress/videos
-cypress/fixtures
 allure-report
 allure-results
