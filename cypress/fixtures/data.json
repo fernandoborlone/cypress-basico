@@ -1,26 +1,26 @@
 [
     {
-        "firtName": "John",
+        "firstName": "John",
         "lastName": "Doe",
         "email": "johndoe@example.com"
     },
     {
-        "firtName": "Josh",
+        "firstName": "Josh",
         "lastName": "Doom",
         "email": "joshdoom@examplecom"
     },
     {
-        "firtName": "Mia",
+        "firstName": "Mia",
         "lastName": "More",
         "email": "miamore@example.com"
     },
     {
-        "firtName": "Bob",
+        "firstName": "Bob",
         "lastName": "Sponge",
         "email": "bobsponge@example.com"
     },
     {
-        "firtName": "Luke",
+        "firstName": "Luke",
         "lastName": "Skywalker",
         "email": "lukeskywalker@example.com"
     }
