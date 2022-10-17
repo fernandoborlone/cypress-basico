@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@shelex/cypress-allure-plugin": "^2.11.1",
-    "cypress": "^9.7.0",
+    "cypress": "^10.10.0",
     "cypress-grep": "^2.5.3",
     "eslint": "^8.14.0",
     "eslint-plugin-cypress": "^2.12.1"
