@@ -1,5 +1,5 @@
 FROM cypress/base:17.8.0
-COPY . .
+COPY /cypress-basico/cypress/ /cypress-basico/cypress/
 WORKDIR /cypress-basico/cypress/
 ENV NO_COLOR=1
 RUN npm install
