@@ -41,7 +41,8 @@ pipeline {
 
         stage('Smoke Tests'){
             steps{
-                sh'npm run test:smoke'
+               sh '''docker build -f Dockerfile \
+                     --npm run test:smoke'''
             }
         }
 
