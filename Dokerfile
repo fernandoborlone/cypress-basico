@@ -1,5 +1,5 @@
 FROM cypress/base:17.8.0
-WORKDIR /cypress-basico/
+WORKDIR /cypress-pipeline-example/
 COPY . . /cypress-basico/
 ENV NO_COLOR=1
 RUN npm install
