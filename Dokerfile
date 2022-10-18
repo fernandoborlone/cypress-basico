@@ -1,6 +1,6 @@
 FROM cypress/base:17.8.0
+WORKDIR /cypress-basico/
 COPY . . /cypress-basico/
-WORKDIR /cypress-basico/cypress/config/
 ENV NO_COLOR=1
 RUN npm install
 RUN npm add cypress
